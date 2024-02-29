@@ -1,0 +1,63 @@
+.modal {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  
+    z-index: 1000;
+    top: 0;
+    left: 0;  
+
+    &_wrapper {
+        padding: 8px;
+        background-color: var(--purple-dark);
+        max-width: fit-content;
+        border-radius: 4px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        animation: modal-open 0.5s ease;
+    }           
+
+    .text {
+        font-size: 24px;
+        color: var(--color-black);
+    }
+
+    .close_button {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+
+        &:hover {
+            svg {
+                fill: #CBD5E1;
+            }
+        }
+    }
+}
+
+.modal_hidden {
+    display: none;
+}
+
+@keyframes modal-open {
+    0% {
+        top: -115px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        .text {
+            font-size: 16px;
+            color: var(--color-black);
+        }
+    }
+}

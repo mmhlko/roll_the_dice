@@ -1,0 +1,36 @@
+.button {
+    font-size: var(--font-size-base);
+    color: #fff;
+    padding: 10px 16px;
+    border: none;    
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: auto;
+        pointer-events: none;
+        opacity: 0.5;        
+    }
+
+    &_wide {
+        width: 100%;
+    }
+
+    &.button_color_green {
+        background-color: var(--green);
+        border-bottom: 1px solid var(--green-hover);
+        &:hover {
+            background-color: var(--green-hover);
+        }
+    }
+
+    &.button_color_purple {
+        background-color: var(--purple);
+        border-bottom: 1px solid var(--purple-hover);
+    
+        &:hover {
+            background-color: var(--purple-hover);
+        }
+    }
+}
+

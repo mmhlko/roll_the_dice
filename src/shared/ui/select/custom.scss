@@ -1,0 +1,37 @@
+.custom-select {
+    
+    &__control {
+        padding: 0 12px;
+        cursor: pointer !important;
+    }
+    &__indicator svg {
+        transition: all 0.5s ease;
+    }
+    &__control--menu-is-open &__indicator svg {
+        transform:rotate(180deg);        
+    }
+    &__indicator {
+        padding: 0 !important;       
+    } 
+    &__indicator-separator {
+        display: none;
+    }
+    &__menu {
+        padding: 8px 12px !important;
+    }
+    &__option {
+        padding: 0 !important;
+        padding: 4px 0 !important;
+        &--is-selected {
+            font-weight: 700;
+            color: black !important;
+            background-color: inherit !important;
+        }
+    }
+    &__option:hover {
+        transition: all 0.2s ease-in-out !important;
+    }
+    &__title {
+        margin-bottom: 4px;
+    }
+}

@@ -1,0 +1,155 @@
+    .dice {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+    }
+    .dice_rolling {
+        transition: all 1s ease;
+    }
+    .dice_wrapper {
+        transform: scale(2);
+    }
+
+    .dice__dot {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin: -10px 5px 5px -10px;
+        border-radius: 20px;
+        background-color: #000000;
+        box-shadow: inset 2px 2px #494949;
+    }
+
+    .dice__side {
+        position: absolute;
+        background-color: #ffF;
+        border-radius: 5px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #e5e5e5;
+        text-align: center;
+        line-height: 2em;
+    }
+
+    .dice__side:nth-child(1) {
+        transform: translateZ(3.1em);
+    }
+
+    .dice__side:nth-child(6) {
+        transform: rotateY(90deg) translateZ(3.1em);
+    }
+
+    .dice__side:nth-child(3) {
+        transform: rotateY(-90deg) translateZ(3.1em);
+    }
+
+    .dice__side:nth-child(4) {
+        transform: rotateX(90deg) translateZ(3.1em);
+    }
+
+    .dice__side:nth-child(5) {
+        transform: rotateX(-90deg) translateZ(3.1em);
+    }
+
+    .dice__side:nth-child(2) {
+        transform: rotateY(-180deg) translateZ(3.1em);
+    }
+
+    .dice-show-1 {
+        transform: rotateX(720deg) rotateZ(-720deg);
+    }
+
+    .dice-show-2 {
+        transform: rotateX(-900deg) rotateZ(1080deg);
+    }
+
+    .dice-show-3 {
+        transform: rotateY(810deg) rotateZ(720deg);
+    }
+
+    .dice-show-4 {
+        transform: rotateX(-810deg) rotateZ(-1080deg);
+    }
+
+    .dice-show-5 {
+        transform: rotateX(450deg) rotateZ(-720deg);
+    }
+
+    .dice-show-6 {
+        transform: rotateY(-450deg) rotateZ(-1440deg);
+    }
+
+    .dice-show-same-1 {
+        transform: rotateX(360deg) rotateZ(-360deg);
+    }
+
+    .dice-show-same-2 {
+        transform: rotateX(-540deg) rotateZ(720deg);
+    }
+
+    .dice-show-same-3 {
+        transform: rotateY(450deg) rotateZ(360deg);
+    }
+
+    .dice-show-same-4 {
+        transform: rotateX(-810deg) rotateZ(-720deg);
+    }
+
+    .dice-show-same-5 {
+        transform: rotateX(810deg) rotateZ(-360deg);
+    }
+
+    .dice-show-same-6 {
+        transform: rotateY(-810deg) rotateZ(360deg);
+    }
+
+
+    .dice__two-1,
+    .dice__three-1,
+    .dice__four-1,
+    .dice__five-1,
+    .dice__six-1 {
+        top: 20%;
+        left: 20%;
+    }
+
+    .dice__four-3,
+    .dice__five-3,
+    .dice__six-4 {
+        top: 20%;
+        left: 80%;
+    }
+
+    .dice__one-1,
+    .dice__three-2,
+    .dice__five-5 {
+        top: 50%;
+        left: 50%;
+    }
+
+    .dice__four-2,
+    .dice__five-2,
+    .dice__six-3 {
+        top: 80%;
+        left: 20%;
+    }
+
+    .dice__two-2,
+    .dice__three-3,
+    .dice__four-4,
+    .dice__five-4,
+    .dice__six-6 {
+        top: 80%;
+        left: 80%;
+    }
+
+    .dice__six-2 {
+        top: 50%;
+        left: 20%;
+    }
+
+    .dice__six-5 {
+        top: 50%;
+        left: 80%;
+    }

@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    flex-direction: column;    
+    padding: 46px 40px 40px 40px;
+    gap: 16px;
+    width: 418px;
+}
+
+.title {
+    color: #000000;
+    margin:  24px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+}
