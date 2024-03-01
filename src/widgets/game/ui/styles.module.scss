@@ -1,6 +1,6 @@
 .game {
     position: relative;
-    margin: 0 auto;
+    margin: 118px auto 0 auto;
     max-width: 338px;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,7 @@
         .title {
             font-size: var(--font-size-big);
             font-weight: 700;
+            margin-bottom: 7px;
         }
 
         .subtitle {
