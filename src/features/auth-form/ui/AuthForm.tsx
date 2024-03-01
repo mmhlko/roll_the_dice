@@ -11,7 +11,7 @@ import { TLoginFormData } from "src/shared/types/authTypes";
 
 export const AuthForm = () => {
 
-    const { handleSubmit, formState: { errors }, register } = useForm({ mode: "onBlur" });
+    const { handleSubmit, formState: { errors }, register } = useForm<TLoginFormData>({ mode: "onBlur" });
     const dispatch = useAppDispatch();
     const loadingLogin = useAppSelector(state => state.user.fetchLoginUserRequest)
 
