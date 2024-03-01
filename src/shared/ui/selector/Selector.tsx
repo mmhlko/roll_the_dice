@@ -1,7 +1,7 @@
-import Select, { SingleValue } from 'react-select'
+import Select, { SingleValue } from "react-select"
 import "./custom.scss"
-import { betOptions } from 'src/widgets/game/lib/constants'
-import { ISelectOption } from 'src/shared/types/gameTypes'
+import { betOptions } from "src/widgets/game/lib/constants"
+import { ISelectOption } from "src/shared/types/gameTypes"
 
 interface ISelectorProps {
     onChange: (option: SingleValue<ISelectOption>) => void,

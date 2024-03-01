@@ -1,11 +1,10 @@
-import { ReactNode, memo } from 'react';
-import s from './styles.module.scss'
+import { ReactNode, memo } from "react";
+import s from "./styles.module.scss"
 
 interface IFormProps {
     handleForm: (data:any) => void, 
     children?: ReactNode, 
     title?: string
-    align?: 'left' | 'center' | 'rigth'
 }
 
 export const Form = memo(({handleForm, children, title}: IFormProps) => {

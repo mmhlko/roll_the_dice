@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import s from './styles.module.scss';
+import classNames from "classnames";
+import s from "./styles.module.scss";
 import { MouseEvent, ReactNode } from "react"
 import CloseBtn from "../assets/close_btn.svg"
 

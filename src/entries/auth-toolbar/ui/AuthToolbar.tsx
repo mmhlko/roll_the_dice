@@ -1,5 +1,5 @@
 import { Button } from "src/shared/ui/button/Button"
-import s from './styles.module.scss';
+import s from "./styles.module.scss";
 import { useAppDispatch } from "src/app/store/hookTypes";
 import { setModal } from "../../modal/model/modalSlice";
 

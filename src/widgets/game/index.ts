@@ -1,2 +1,2 @@
-export { Game } from "./ui/game";
+export { Game } from "./ui/Game";
 export { gameReducer } from "./model/gameSlice";

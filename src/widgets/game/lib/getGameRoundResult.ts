@@ -1,8 +1,8 @@
-import { BETS } from "../model/types";
+import { BETS } from "src/shared/types/gameTypes";
 
 export const getGameRoundResult = (betVariant: string, betAmount: number, betCurrentNumber: number, balance: number, diceResult: number) => {
     let isGameSuccess = false;
-    let gameScore = 0;
+    let gameScore: number;
     
     //определяем успех игры
     switch (betVariant) {
@@ -32,16 +32,10 @@ export const getGameRoundResult = (betVariant: string, betAmount: number, betCur
     }
     //считаем баланс
     
-    console.log({
-        dice: diceResult,
-        succsess: isGameSuccess,
-        gameScore: gameScore,
-        balance: +(isGameSuccess ? balance + gameScore : balance - gameScore).toFixed(2),
-    });
-
+    const newBalance = +(isGameSuccess ? balance + gameScore : balance - gameScore).toFixed(2)
     
     return {
-        diceResult, isGameSuccess, gameScore, newBalance: +(isGameSuccess ? balance + gameScore : balance - gameScore).toFixed(2)
+        diceResult, isGameSuccess, gameScore, newBalance
     }
 
 }

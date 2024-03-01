@@ -23,7 +23,6 @@ export const GameDice = ({ diceResult, dicePrevResult, isRolling }: IGameDicePro
         </div>
     )
 
-
     const rollDice = () => {
         const reRollClass = getReRollClassName(diceResult)
         const oldRollClass = getReRollClassName(dicePrevResult)
@@ -33,22 +32,21 @@ export const GameDice = ({ diceResult, dicePrevResult, isRolling }: IGameDicePro
         document.getElementById("dice_wrapper")?.classList.add("dice_wrapper")
         setTimeout(() => {
             document.getElementById("dice_wrapper")?.classList.remove("dice_wrapper")
-        }, DICE_ROLLING_TIME/2);
+        }, DICE_ROLLING_TIME / 2);
 
-        
 
         if (dicePrevResult) {
             if (diceResult !== dicePrevResult) {
                 diceClassList?.remove(oldRollClass)
-                diceClassList?.remove('dice-show-' + dicePrevResult)
-                diceClassList?.add('dice-show-' + diceResult)
+                diceClassList?.remove("dice-show-" + dicePrevResult)
+                diceClassList?.add("dice-show-" + diceResult)
             } else {
                 isReRollClassExist
                     ? diceClassList?.remove(oldRollClass)
                     : diceClassList?.add(reRollClass)
             }
         } else {
-            diceClassList?.add('dice-show-' + diceResult)
+            diceClassList?.add("dice-show-" + diceResult)
         }
     }
 
@@ -59,9 +57,9 @@ export const GameDice = ({ diceResult, dicePrevResult, isRolling }: IGameDicePro
     return (
         <div className={s.wrapper}>
             <div id="dice_wrapper" className="dice_rolling">
-            <div ref={refDice} id='dice' className="dice" style={{ transition: `transform ${DICE_ROLLING_TIME}ms` }}>
-                {diceConfig.map(diceRender)}
-            </div>
+                <div ref={refDice} id="dice" className="dice" style={{ transition: `transform ${DICE_ROLLING_TIME}ms` }}>
+                    {diceConfig.map(diceRender)}
+                </div>
             </div>
         </div>
     )

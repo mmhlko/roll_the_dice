@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { TStoreAction } from "src/shared/types/storeTypes";
-import { TCalulateGameAction } from "./types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { TCalculateGameAction } from "./types";
 import { getGameRoundResult } from "../lib/getGameRoundResult";
 
 export interface IGameState {
@@ -18,7 +17,7 @@ export interface IGameState {
 }
 
 const initialState: IGameState = {
-    balance: 0,
+    balance: 100,
     betAmount: 1,
     betVariant: null,
     betCurrentNumber: 1,
@@ -37,19 +36,16 @@ export const gameSlice = createSlice({
     name: sliceName,
     initialState,
     reducers: {
-        onChangeBetAmount: (state, action: TStoreAction<number>) => {
+        onChangeBetAmount: (state, action: PayloadAction<number>) => {
             state.betAmount = action.payload;
         },
-        onChangeBetVariant: (state, action: TStoreAction<string>) => {
+        onChangeBetVariant: (state, action: PayloadAction<string>) => {
             state.betVariant = action.payload
         },
-        setBetNumber: (state, action: TStoreAction<number>) => {
+        setBetNumber: (state, action: PayloadAction<number>) => {
             state.betCurrentNumber = action.payload
         },
-        setUserBalance: (state, action: TStoreAction<number>) => {
-            state.balance = action.payload
-        },
-        calculateGameRound: (state, action: TStoreAction<TCalulateGameAction>) => {
+        calculateGameRound: (state, action: PayloadAction<TCalculateGameAction>) => {
             state.isRolling = false
             const {betAmount, betCurrentNumber, betVariant, diceResult} = action.payload
             const {isGameSuccess, gameScore, newBalance} = getGameRoundResult(betVariant, betAmount, betCurrentNumber, state.balance, diceResult)
@@ -58,7 +54,6 @@ export const gameSlice = createSlice({
             state.gameSuccess = isGameSuccess
             state.gameFinished = true
             state.isRolling = false
-            //state.diceResult = null
         },
         getDiceResult: (state) => {
             state.dicePrevResult = state.diceResult
@@ -73,13 +68,5 @@ export const gameSlice = createSlice({
     
 })
 
-export const {
-    onChangeBetAmount,
-    onChangeBetVariant,
-    setBetNumber,
-    setUserBalance,
-    calculateGameRound,
-    getDiceResult,
-    rollDiceStart
-} = gameSlice.actions;
+export const gameActions = gameSlice.actions;
 export const gameReducer = gameSlice.reducer;

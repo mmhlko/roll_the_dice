@@ -1,11 +1,11 @@
 import s from "./styles.module.scss"
-import { ForwardedRef, HTMLProps, forwardRef, memo } from "react";
+import { ForwardedRef, HTMLProps, forwardRef } from "react";
 
 type TUnitedInputElement = {
     validationError?: string
 } & HTMLProps<HTMLInputElement>
 
-export const FormInput = memo(forwardRef<HTMLInputElement, TUnitedInputElement>((
+export const FormInput = forwardRef<HTMLInputElement, TUnitedInputElement>((
     { validationError, ...props }, ref) => {
 
         return (
@@ -14,4 +14,4 @@ export const FormInput = memo(forwardRef<HTMLInputElement, TUnitedInputElement>(
             {validationError && <p className={s.errorMessage}>{validationError}</p>}        
         </div>
     );
-}))
+})

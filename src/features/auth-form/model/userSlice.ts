@@ -1,13 +1,12 @@
-import { createSlice, isFulfilled, isPending, isRejected } from '@reduxjs/toolkit';
-import { getActionName, payloadCreatorError } from 'src/app/store/helpers';
-import { createAppAsyncThunk } from 'src/app/store/hookTypes';
-import { TUserResponse, TLoginFormData } from 'src/shared/types/authTypes';
-import { TStateError, TStoreAction } from 'src/shared/types/storeTypes';
-import { setUserBalance } from 'src/widgets/game/model/gameSlice';
+import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from "@reduxjs/toolkit";
+import { getActionName, payloadCreatorError } from "src/app/store/helpers";
+import { createAppAsyncThunk } from "src/app/store/hookTypes";
+import { TUserResponse, TLoginFormData } from "src/shared/types/authTypes";
+import { TStateError } from "src/app/store/storeTypes";
 
 export type TUserState = {
     isAuthChecked: boolean,
-    data: TUserResponse| null,
+    data: TUserResponse | null,
 
     fetchLoginUserRequest: boolean,
     fetchLoginUserError: TStateError,
@@ -28,18 +27,17 @@ const initialState: TUserState = {
 
 }
 
-export const sliceName = 'user'
+export const sliceName = "user"
 
 export const fetchLoginUser = createAppAsyncThunk<TUserResponse, TLoginFormData>(
     `${sliceName}/fetchLoginUser`,
-    async (dataUser, { fulfillWithValue, rejectWithValue, extra: { authApi }, dispatch }) => {
+    async (dataUser, { fulfillWithValue, rejectWithValue, extra: { authApi } }) => {
         try {
             const data = (await authApi.login(dataUser)).data
-            if (data.balance) {
-                dispatch(setUserBalance(data.balance))
+            if (data.id) {
                 return fulfillWithValue(data)
             } else {
-                return rejectWithValue(data)
+                return rejectWithValue("Login error")
             }
         } catch (error) {
             return rejectWithValue(payloadCreatorError(error))
@@ -52,7 +50,6 @@ export const fetchAuthCheck = createAppAsyncThunk<TUserResponse>(
     async (_, { fulfillWithValue, rejectWithValue, extra: { authApi }, dispatch }) => {
         try {
             const data = (await authApi.checkMe()).data;
-            dispatch(setUserBalance(data.balance))
             return fulfillWithValue(data)
         } catch (error) {
             return rejectWithValue(payloadCreatorError(error))
@@ -61,7 +58,6 @@ export const fetchAuthCheck = createAppAsyncThunk<TUserResponse>(
     }
 )
 
-
 const userSlice = createSlice({
     name: sliceName,
     initialState,
@@ -69,11 +65,6 @@ const userSlice = createSlice({
         authCheck: (state) => {
             state.isAuthChecked = true;
         },
-        changeUserBalance: (state, action: TStoreAction<number>) => {
-            if (state.data) {
-                state.data.balance = action.payload
-            }
-        }
     },
     extraReducers: (builder) => {
         builder
@@ -88,7 +79,8 @@ const userSlice = createSlice({
                 })
             .addMatcher(
                 isRejected(fetchAuthCheck, fetchLoginUser),
-                (state, action) => {
+                (state, action: PayloadAction<string | unknown>) => {
+                    console.log("isRejected", action);
                     return {
                         ...state,
                         [`${getActionName(action.type)}Request`]: false,
@@ -97,7 +89,7 @@ const userSlice = createSlice({
                 })
             .addMatcher(
                 isFulfilled(fetchAuthCheck, fetchLoginUser),
-                (state, action) => {
+                (state, action: PayloadAction<TUserResponse>) => {
                     return {
                         ...state,
                         data: action.payload,
@@ -107,5 +99,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { authCheck, changeUserBalance } = userSlice.actions;
+export const authCheck = userSlice.actions.authCheck;
 export const userReducer = userSlice.reducer;

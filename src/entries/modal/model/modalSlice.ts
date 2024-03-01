@@ -1,5 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { TStoreAction } from "src/shared/types/storeTypes";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IModalState {
     isOpened: boolean
@@ -15,12 +14,11 @@ export const modalSlice = createSlice({
     name: sliceName,
     initialState,
     reducers: {
-        setModal: (state, action: TStoreAction<boolean>) => {
+        setModal: (state, action: PayloadAction<boolean>) => {
             state.isOpened = action.payload;
         },
     },
     
 })
-
-export const { setModal } = modalSlice.actions;
+export const setModal = modalSlice.actions.setModal;
 export const modalReducer = modalSlice.reducer;

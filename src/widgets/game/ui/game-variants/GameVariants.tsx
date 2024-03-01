@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import s from "./styles.module.scss";
 import { ReactNode, memo } from "react";
-import { BETS, TVariantTab } from "../../model/types";
 import { NumberVariantValue } from "../current-number/CurrentNumber";
+import { BETS, TVariantTab } from "src/shared/types/gameTypes";
 
 
 type TRadioListProps = {
