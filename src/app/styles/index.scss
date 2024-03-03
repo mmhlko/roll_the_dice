@@ -1,24 +1,10 @@
 @import url("./variables.scss");
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  background: var(--color-dark-grey);
-}
-
-h1, h2, h3, a, p, ul, li, div {
-  font-family: Roboto, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 #root {
@@ -27,26 +13,16 @@ h1, h2, h3, a, p, ul, li, div {
   min-height: 100vh;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: .4s;
+body {
+  background: linear-gradient(270deg, #0c0b1e 0%, #2a0f3b 52.08%, #0c0b1e 100%);
+  font-size: var(--font-size-base);
+  color: #fff;
 }
 
-button {
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
+.wide {
+  width: 100%;
 }
 
-ul li {
-  list-style: none;
+.font_black {
+  color: #000
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-}
-

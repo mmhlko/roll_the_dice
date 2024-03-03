@@ -80,7 +80,6 @@ const userSlice = createSlice({
             .addMatcher(
                 isRejected(fetchAuthCheck, fetchLoginUser),
                 (state, action: PayloadAction<string | unknown>) => {
-                    console.log("isRejected", action);
                     return {
                         ...state,
                         [`${getActionName(action.type)}Request`]: false,

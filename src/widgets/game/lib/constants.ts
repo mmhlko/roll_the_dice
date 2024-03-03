@@ -1,6 +1,7 @@
+import { Options } from "react-select"
 import { BETS, IGameDiceSide, ISelectOption, TVariantTab } from "src/shared/types/gameTypes"
 
-export const betOptions: ISelectOption[] = [
+export const betOptions: Options<ISelectOption> = [
     { value: "1", label: "1.00" },
     { value: "5", label: "5.00" },
     { value: "10", label: "10.00" },

@@ -4,7 +4,6 @@ import { ReactNode, memo } from "react";
 import { NumberVariantValue } from "../current-number/CurrentNumber";
 import { BETS, TVariantTab } from "src/shared/types/gameTypes";
 
-
 type TRadioListProps = {
     tabs: TVariantTab[],
     name: string,

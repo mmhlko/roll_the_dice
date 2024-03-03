@@ -10,7 +10,7 @@ export interface IGameDiceSide {
 export type TVariantTab = {
     id: string,
     title: string,
-    wide?: Boolean
+    wide?: boolean
 }
 
 export enum BETS  {

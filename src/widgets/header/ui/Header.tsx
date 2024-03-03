@@ -13,7 +13,6 @@ export const Header = () => {
                 ? <UserBalance balance={balance}/>
                 : <AuthToolbar />
             }
-            
         </header>
     )
 }

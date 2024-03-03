@@ -1,3 +1,4 @@
+import "./styles/index.scss"
 import { Modal } from "src/entries/modal/"
 import { AuthForm } from "src/features/auth-form"
 import { Game } from "src/widgets/game/"
@@ -6,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "./store/hookTypes"
 import { memo, useEffect } from "react"
 import { fetchAuthCheck } from "src/features/auth-form/model/userSlice"
 import { Spinner } from "src/shared/ui/spinner/Spinner"
-import { setModal } from "src/entries/modal/model/modalSlice";
+import { setModal } from "src/entries/modal/model/modalSlice"
 
 const App = () => {
 
